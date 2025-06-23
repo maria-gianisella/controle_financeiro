@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Financeiro
+    </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Controle Financeiro</h1>
+        <nav class="menu">
+            <ul>
+                <li><a href="#main-content">Início</a></li>
+                <li><a href="#balance-section">Saldo</a></li>
+                <li><a href="#transactions-section">Transações</a></li>
+                <li><a href="#charts-section">Gráficos</a></li>
+                <li><a href="#statistics-section">Estatísticas</a></li>
+                <li><a href="#export-section">Exportar</a></li>
+                <li><a href="#clear-section">Limpar</a></li>
+                <li><a href="#about-section">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div id="first-access-container">
+            <h1>Olá!</h1>
+            <h2>Bem-vindo ao melhor sistema de Controle Financeiro.</h2>
+            <div id="username-form-container">
+                <p>Para começar, por favor, digite seu nome abaixo:</p>
+                <form id="username-form">
+                    <input type="text" id="username-input" required>
+                    <button type="submit" id="save-button">Continuar</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="main-content">
+            <h2>Olá, <span id="username"></span></h2>
+            <h3>Controle seus gastos pessoais.</h3>
+
+            <section id="balance-section">
+                <h2>Saldo Atual</h2>
+                <div id="balance">R$ 0,00</div>
+            </section>
+
+            <section id="transactions-section">
+                <h2>Transações</h2>
+                <div id="transactions">
+                    <div class="transactions-column">
+                        <h3>Entradas</h3>
+                        <ul id="income-list">
+                            <!-- Entradas -->
+                        </ul>
+                    </div>
+                    <div class="transactions-column">
+                        <h3>Saídas</h3>
+                        <ul id="expense-list">
+                            <!-- Saídas -->
+                        </ul>
+                    </div>
+                    <div id="transaction-form-container">
+                        <h3>Adicionar Nova Transação</h3>
+                        <form id="transaction-form">
+                            <label for="transaction-type">Tipo:</label>
+                            <select id="transaction-type" required>
+                                <option value="income">Entrada</option>
+                                <option value="expense">Saída</option>
+                            </select>
+
+                            <label for="transaction-description">Descrição:</label>
+                            <input type="text" id="transaction-description" required>
+
+                            <label for="transaction-amount">Valor:</label>
+                            <input type="number" id="transaction-amount" step=any required>
+
+                            <label for="transaction-date">Data:</label>
+                            <input type="date" id="transaction-date" required>
+
+                            <button type="submit" id="add-transaction-button">Adicionar Transação</button>
+                        </form>
+                        </div>
+                </div>
+            </section>
+
+            <section id="charts-section">
+                <h2>Gráficos de Gastos</h2>
+                <label for="charts-period">Período:</label>
+                <select id="charts-period">
+                    <option value="7">Últimos 7 dias</option>
+                    <option value="30" selected>Últimos 30 dias</option>
+                    <option value="365">Últimos 365 dias</option>
+                    <option value="all">Desde sempre</option>
+                    <option value="custom">A partir de uma data</option>
+                </select>
+                <input type="date" id="charts-custom-date" style="display:none;">
+
+                <div id="charts-container">
+
+                </div>
+            </section>
+            <section id="statistics-section">
+                <h2>Estatísticas</h2>
+                <label for="statistic-period">Período:</label>
+                <select id="statistic-period">
+                    <option value="7">Últimos 7 dias</option>
+                    <option value="30" selected>Últimos 30 dias</option>
+                    <option value="365">Últimos 365 dias</option>
+                    <option value="all">Desde sempre</option>
+                    <option value="custom">A partir de uma data</option>
+                </select>
+                <input type="date" id="statistic-custom-date" style="display:none;">
+                <div id="statistics-container">
+                    <div class="statistic-item">
+                        <h3>Total de Entradas</h3>
+                        <p id="total-income">R$ 0,00</p>
+                    </div>
+                    <div class="statistic-item">
+                        <h3>Total de Saídas</h3>
+                        <p id="total-expense">R$ 0,00</p>
+                    </div>
+                    <div class="statistic-item">
+                        <h3>Saldo Final</h3>
+                        <p id="final-balance">R$ 0,00</p>
+                    </div>
+                </div>
+            </section>
+            <section id="export-section">
+                <h2>Exportar Dados</h2>
+                <button id="export-button">Exportar para CSV</button>
+            </section>
+            <section id="clear-section">
+                <h2>Limpar Dados</h2>
+                <button id="clear-data-button">Limpar Tudo</button>
+            </section>
+            <section id="about-section">
+                <h2>Sobre</h2>
+                <p>Este é um sistema de controle financeiro pessoal desenvolvido para ajudar você a gerenciar suas
+                    finanças de forma simples e eficiente.</p>
+                <p>Você pode adicionar entradas e saídas, visualizar gráficos de gastos, estatísticas e exportar seus
+                    dados para CSV.</p>
+                <p>Desenvolvido por Maria Eduarda Guedes Pinto Gianisella.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Trabalho de Desenvolvimento Web - Cliente</p>
+        <p>©</p>
+        <p>Maria Eduarda Guedes Pinto Gianisella</p>
+        <p>-</p>
+        <p>2025</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
